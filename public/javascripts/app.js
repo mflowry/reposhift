@@ -3,6 +3,20 @@ $(document).ready(function(){
         generateUsers();
     });
 
+    $('#deleteAll').on('click', function(){
+        $('#users').empty();
+        $.ajax({
+            url: '/all',
+            type: 'DELETE'
+        }).done(function(response, textStatus, jqXHR){
+            console.log('Deleted user!');
+        }).fail(function( jqXHR, textStatus, errorThrown ) {
+            console.log(jqXHR, textStatus, errorThrown);
+        }).always(function(){
+            console.log('Ajax complete');
+        });
+    });
+
     $('#users').on('click', '.delete', function(){
        var id = $(this).data('id');
         $(this).parent().remove();

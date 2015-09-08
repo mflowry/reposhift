@@ -15,6 +15,17 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.delete('/all', function(req, res, next){
+  Users.remove({}, function(err, users){
+    if(err){
+      console.log(err);
+      next(err);
+    } else {
+      res.sendStatus(200);
+    }
+  })
+});
+
 router.get('/generate', function(req,res,next){
     createUsers(20);
     res.sendStatus(200);

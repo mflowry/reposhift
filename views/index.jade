@@ -1,5 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  h1 Users:
+  button(id="genUsers") Generate Users
+
+  .users
+
+  script(id="userTemplatee" type='text/x-handlebars-template')
+    {{#each this}}
+    ul(class='list-group')
+      li(class='list-group-item') {{name}}
+      li(class='list-group-item') {{age}}
+      li(class='list-group-item') {{gender}}
+      li(class='list-group-item') {{location}}
+      li(class='list-group-item') {{tweets}}
+     {{/each}}
+

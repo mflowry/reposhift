@@ -38,6 +38,9 @@ app.use(cookieParser());
 // server public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+// serve Node modules
+app.use('/stylesheets',express.static(__dirname + '/node_modules/bootstrap/dist/css/'));
+
 // use routes
 app.use('/', index);
 app.use('/users', users);

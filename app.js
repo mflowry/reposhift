@@ -7,8 +7,19 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var mongoose = require('mongoose');
+var User = require('./models/user');
+var mongoURI = "mongodb://localhost:27017/prime_group_repoShift_02";
+var MongoDB=mongoose.connect(mongoURI).connection;
 
 var app = express();
+
+MongoDB.on('error', function(err){
+  console.log("Mongodb connection error", err);
+});
+MongoDB.once('open', function(){
+  console.log("Mongodb connection open");
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

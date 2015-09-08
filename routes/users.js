@@ -1,17 +1,20 @@
 var express = require('express');
 var router = express.Router();
-var allinfo = require('../models/allinfo.js');
+var allInfo = require('../modules/allInfo');
+var User=require('../models/user');
+var mongoose = require('mongoose');
 
-/* GET users listing. */
+// create user list
 router.get('/', function(req, res, next) {
-  //all users generate - index.jade contains button, app.js needs to pull info, mongoose not set up yet. 
-  var users = [];
-  var i = 0;
-  while(i < 20) {
-    users.push(new allinfo);
-    i++
+  var twentyArray = [];
+  //calls the newUser constructor 20 times
+  //push each returned user to an array to aggregate users to send back to client
+  for(var i=0; i<20;i++){
+    twentyArray.push(allInfo.newUser());
   }
-  res.json(users);
+  //respond with an array of 20 new users
+  res.json(twentyArray);
+
 });
 
 module.exports = router;

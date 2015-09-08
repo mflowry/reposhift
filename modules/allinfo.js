@@ -3,7 +3,6 @@ var age = require('./ages.js');
 var locat = require('./locations.js');
 var gender = require('./genders.js');
 var tweets = require('./tweets');
-var mongoose= require('mongoose');
 var User = require('../models/user');
 
 var allInfo = {};
@@ -15,9 +14,9 @@ allInfo.newUser= function(){
         age: age.newAge(),
         location: locat.newLocation(),
         sex: gender.newGender(),
-        twitterHandle: tweets.newTweets()};
+        twitter: tweets.newTweets()};
     //save user to database
-        User.create(randomUser);
+    //    User.create(randomUser);
     //return user obj to be used by the route
         return(randomUser);
 };

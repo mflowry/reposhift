@@ -1,18 +1,26 @@
 extends layout
 
 block content
-  h1 Users:
-  button(id="genUsers") Generate Users
-
-  .users
-
-  script(id="userTemplatee" type='text/x-handlebars-template')
-    {{#each this}}
-    ul(class='list-group')
-      li(class='list-group-item') {{name}}
-      li(class='list-group-item') {{age}}
-      li(class='list-group-item') {{gender}}
-      li(class='list-group-item') {{location}}
-      li(class='list-group-item') {{tweets}}
-     {{/each}}
+  .text-center
+    h1 Users:
+    button.btn.btn-primary#genUsers Generate Users
+  .container#users
+    each user in users
+      ul.col-md-3.well
+        li= user.name
+        li= user.age
+        li= user.sex
+        li= user.location
+        li= user.twitter
+        button.btn.btn-danger.delete.btn-block(data-id= user.id) Delete
+  script(id="handlebars" type='text/x-handlebars-template')
+    {{#each users}}
+    ul.col-md-3.well
+      li {{this.name}}
+      li {{this.age}}
+      li {{this.sex}}
+      li {{this.location}}
+      li {{this.twitter}}
+      button.btn.btn-danger(data-id= '{{_id}}') Delete
+    {{/each}}
 

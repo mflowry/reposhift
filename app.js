@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 // Mongo config
 var mongoose = require('mongoose');
 
-var mongoURI = "mongodb://localhost:27017/prime_group_repoShift02";
+var mongoURI = "mongodb://localhost:27017/prime_group_repoShift_yellow";
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.on('error', function (err) {

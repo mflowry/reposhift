@@ -12,3 +12,13 @@ block content
                 li= user.location
                 li= user.twitter
                 button.btn.btn-danger.delete(data-id= user.id) Delete
+    script#handlebars(type='text/x-handlebars-template')
+        {{#each users}}
+        ul.col-md-3.well
+            li {{this.name}}
+            li {{this.age}}
+            li {{this.sex}}
+            li {{this.location}}
+            li {{this.twitter}}
+            button.btn.btn-danger.delete(data-id= '{{_id}}') Delete
+        {{/each}}

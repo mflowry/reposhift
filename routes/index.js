@@ -4,7 +4,7 @@ var randomUser = require('../libs/randomUser');
 var userDB = require('../models/user.js');
 
 
-// GET index
+// GET index on page load
 router.get('/', function(req, res, next) {
     userDB.find({}, function(err, users){
        if(err){
@@ -13,6 +13,19 @@ router.get('/', function(req, res, next) {
        } else {
            res.render('index', { title: 'Random User Generator', users: users});
        }
+    });
+});
+
+//UPDATE index
+router.get('/update', function(req, res, next) {
+    userDB.find({}, function(err, users){
+        if(err){
+            console.log(err);
+            next(err);
+        } else {
+            var users = users;
+            res.send({users: users});
+        }
     });
 });
 

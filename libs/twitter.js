@@ -5,6 +5,6 @@ var Chance = require('chance');
 var chance = new Chance();
 
 // random Twitter handle
-var twitter = chance.twitter();
+var twitter = function(){return chance.twitter()};
 
 module.exports = twitter;

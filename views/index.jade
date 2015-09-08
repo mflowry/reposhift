@@ -2,4 +2,13 @@ extends layout
 
 block content
     .text-center
-        button(type="button" name="get-users" class="btn-lg btn-primary") Get Users
+        button#genUsers(type="button" name="get-users" class="btn-lg btn-primary") Get Users
+    .container#users
+        each user in users
+            ul.col-md-3.well
+                li= user.name
+                li= user.age
+                li= user.sex
+                li= user.location
+                li= user.twitter
+                button.btn.btn-danger.delete(data-id= user.id) Delete

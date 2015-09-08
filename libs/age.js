@@ -5,6 +5,6 @@ var Chance = require('chance');
 var chance = new Chance();
 
 // random age
-var age = chance.age();
+var age = function(){return chance.age()};
 
 module.exports = age;

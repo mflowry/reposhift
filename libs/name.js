@@ -5,6 +5,6 @@ var Chance = require('chance');
 var chance = new Chance();
 
 // random name
-var name = chance.name();
+var name = function(){return chance.name()};
 
 module.exports = name;

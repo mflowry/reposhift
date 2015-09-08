@@ -5,6 +5,6 @@ var Chance = require('chance');
 var chance = new Chance();
 
 // random sex
-var sex = chance.gender();
+var sex = function(){return chance.gender()};
 
 module.exports = sex;

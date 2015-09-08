@@ -11,5 +11,5 @@ function newuser(){
     this.locat = locat.location();
     this.tweets = tweets.tweets();
 }
-
-module.exports = newuser();
+//in users.js a new user will be created with this export
+module.exports = newuser;

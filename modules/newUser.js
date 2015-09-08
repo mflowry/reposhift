@@ -21,4 +21,6 @@ function randomUser (){
 
 var testUser = new randomUser();
 
-console.log(testUser);
+console.log("newUser.js", testUser);
+
+module.exports = testUser;

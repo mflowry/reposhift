@@ -12,11 +12,13 @@ var allInfo = {};
 
 allInfo.newUser= function(){
     //call the submodules and creates new user as an obj
-    var randomUser = {   name: name.name(),
+    var randomUser = {
+        name: name.name(),
         age: age.age(),
         location: locat.location(),
         sex: gender.gender(),
-        id: id.id(),
+        // don't want to use a ssn, want the db id field
+        //id: id.id(),
         twitterHandle: tweets.tweets()};
     //save user to database
     User.create(randomUser);

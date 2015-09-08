@@ -2,4 +2,7 @@ extends layout
 
 block content
   button#getusers GET USERS
-
+  .container-fluid
+      .well.col-md-12
+        each user in usersArray
+          include ./users.jade

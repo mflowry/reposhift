@@ -11,17 +11,31 @@ var allInfo = {};
 
 
 allInfo.newUser= function(){
-    //call the submodules and creates new user as an obj
-    var randomUser = {   name: name.name(),
-        age: age.age(),
-        location: locat.location(),
-        sex: gender.gender(),
-        id: id.id(),
-        twitterHandle: tweets.tweets()};
+
+    var twentyArray = [];
+    //calls the newUser constructor 20 times
+    //push each returned user to an array to aggregate users to send back to client
+    for(var i=0; i<20;i++){
+        //call the submodules and creates new user as an obj
+        var randomUser = {
+
+            name: name.name(),
+            age: age.age(),
+            location: locat.location(),
+            sex: gender.gender(),
+            id: id.id(),
+            twitterHandle: tweets.tweets()
+
+        };
+        twentyArray.push(randomUser)
+
+        User.create(randomUser);
+
+    }
+
     //save user to database
-    User.create(randomUser);
     //return user obj to be used by the route
-    return(randomUser);
+    return(twentyArray);
 };
 
 

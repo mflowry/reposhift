@@ -1,5 +1,21 @@
 extends layout
 
 block content
+  script(id='userTemplate' type = 'text/x-handlebars-template').
+    {{#each this}}
+      <div class="new user">
+      <p>Name: {{name}}</p>
+      <p>Age: {{age}}</p>
+      <p>Gender: {{sex}}</p>
+      <p>Location: {{location}}</p>
+      <p>Twitter handle: {{twitterHandle}}</p>
+      <button id={{id}} class="delete"> Delete </button>
+      </div>
+    {{/each}}
   button#getusers GET USERS
+  div#users
+
+
+
+
 

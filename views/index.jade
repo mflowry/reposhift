@@ -5,7 +5,7 @@ block content
         button#genUsers(type="button" name="get-users" class="btn-lg btn-primary") Get Users
     .container#users
         each user in users
-            ul.col-md-3.well
+            ul.col-md-2.well.liststyle
                 li= user.name
                 li= user.age
                 li= user.sex
@@ -14,7 +14,7 @@ block content
                 button.btn.btn-danger.delete(data-id= user.id) Delete
     script#handlebars(type='text/x-handlebars-template')
         {{#each users}}
-        ul.col-md-3.well
+        ul.col-md-2.well.liststyle
             li {{this.name}}
             li {{this.age}}
             li {{this.sex}}

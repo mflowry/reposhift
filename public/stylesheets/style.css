@@ -1,8 +1,55 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 16px "Book Antiqua", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  line-height: 21px;
 }
 
 a {
   color: #00B7FF;
+}
+
+.btn-group-lg>.btn, .btn-lg{
+  margin-bottom: 100px;
+  margin-top: 37px;
+  padding: 25px 29px;
+  line-height: 1.3333333;
+  border-radius: 18px;
+  font-size:34px;
+
+}
+
+.liststyle {
+  list-style: none;
+}
+
+.btn{
+  margin-top: 25px;
+  position: relative;
+  left: 7%;
+
+}
+
+.btn-danger{
+  background-color: #3D5C00;
+  border-color: #3D5C00;
+
+}
+
+.btn-primary{
+  color: #fff;
+  background-color: #660066;
+  border-color: black;
+  border: 6px solid black;
+}
+
+.well {
+  min-height: 45%;
+  min-width: 20%;
+  margin-left: 19px;
+  margin-left: 19px;
+  background-color: white;
+  border: 6px solid black;
+  border-radius: 6px;
 }

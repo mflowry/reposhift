@@ -5,6 +5,6 @@ var Chance = require('chance');
 var chance = new Chance();
 
 // random zip code
-var location = function(){return chance.zip();};
+var location = function(){return chance.country({full: true})};
 
 module.exports = location;

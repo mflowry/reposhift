@@ -1,14 +1,16 @@
+var $users = $('#users');
+
 $(document).ready(function(){
     $('#genUsers').on('click', function(){
         generateUsers();
     });
 
-    $('#users').on('click', '.delete', function(){
+    $users.on('click', '.delete', function(){
         var id = $(this).data('id');
         $(this).parent().remove();
         $.ajax({
             url: '/' + id,
-            type: 'DELETE',
+            type: 'DELETE'
         }).done(function(response, textStatus, jqXHR){
             console.log('Deleted user!');
         }).fail(function( jqXHR, textStatus, errorThrown ) {
@@ -41,10 +43,10 @@ function getUsers(){
         console.log('Ajax attempt complete.');
     }).done(function (data, textStatus, jqXHR) {
         console.log("users" + data);
-        $('#users').empty();
+        $users.empty();
         var source = $('#handlebars').html();
         var template = Handlebars.compile(source);
-        $('#users').append(template(data));
+        $users.append(template(data));
     }).fail(function (jqXHR, textStatus, errorThrown) {
         console.log('Ajax failed: ', textStatus);
     });

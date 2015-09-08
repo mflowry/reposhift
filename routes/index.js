@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var randomUser = require('../libs/randomUser');
+var randomUsers = require('../libs/randomUsers');
 var userDB = require('../models/user.js');
 
 
@@ -34,7 +34,7 @@ router.get('/update', function(req, res, next) {
 router.get('/generate', function(req, res, next) {
 
     //create userArray of 20 random users
-    var users = randomUser(20);
+    var users = randomUsers(20);
 
     //saves each user in database
     users.forEach(function(elem){

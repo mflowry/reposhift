@@ -15,13 +15,13 @@ var User = function(name, age, sex, location, twitter){
 };
 
 // multiple users function
-var createUsers = function(quantity){
-    var usersArray = [];
-    for(var i = 0; i < quantity; i++){
-        var randomUser = new User(name(), age(), sex(), location(), twitter());
-        usersArray.push(randomUser);
-    }
-    return usersArray;
-};
+//var createUsers = function(quantity){
+//    var usersArray = [];
+//    for(var i = 0; i < quantity; i++){
+//        var randomUser = new User(name(), age(), sex(), location(), twitter());
+//        usersArray.push(randomUser);
+//    }
+//    return usersArray;
+//};
 
-module.exports = createUsers;
+module.exports = User;

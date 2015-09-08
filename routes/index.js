@@ -1,10 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var Chance = require('chance');
 var randomUser = require('../libs/randomUser');
 var userDB = require('../models/user.js');
 
-var chance = new Chance();
 
 // GET index
 router.get('/', function(req, res, next) {
@@ -13,12 +11,9 @@ router.get('/', function(req, res, next) {
            console.log(err);
            next(err);
        } else {
-           console.log(users);
            res.render('index', { title: 'Random User Generator', users: users});
        }
     });
-    // render index with randomUsers
-    //res.render('index', { title: 'Random User Generator', user: users});
 });
 
 
@@ -43,6 +38,7 @@ router.get('/generate', function(req, res, next) {
 
 });
 
+//find and delete user by id
 router.delete('/:id', function(req, res, next) {
 
    userDB.findByIdAndRemove(req.params.id, function(err, user){

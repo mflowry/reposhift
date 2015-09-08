@@ -1,12 +1,14 @@
 /**
  * Created by MrComputer on 9/8/15.
  */
-var chance = require('chance');
+var Chance = require('chance');
+var age = {};
+var chance = new Chance();
 
-var chance = new chance();
-var age = chance.age({type: 'adult'});
+age.age = function() {
+    return chance.age({type: 'adult'});
+    };
 
-console.log(age);
 
 // export the module
-module.exports =
+module.exports = age;

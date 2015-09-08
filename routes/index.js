@@ -22,6 +22,7 @@ router.get('/', function(req, res, next) {
 });
 
 
+//when generate button is clicked add 20 users to the database
 router.get('/generate', function(req, res, next) {
 
     //create userArray of 20 random users
@@ -38,8 +39,21 @@ router.get('/generate', function(req, res, next) {
         })
     });
 
-    // render index with randomUsers
-    res.render('index', { title: 'Random User Generator', users: users });
+    res.sendStatus(200);
+
+});
+
+router.delete('/:id', function(req, res, next) {
+
+   userDB.findByIdAndRemove(req.params.id, function(err, user){
+       if(err){
+           console.log(err);
+           next(err);
+       } else {
+           res.sendStatus(200);
+       }
+   })
+
 });
 
 module.exports = router;

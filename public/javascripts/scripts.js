@@ -4,7 +4,18 @@ $(document).ready(function(){
     });
 
     $('#users').on('click', '.delete', function(){
-       console.log($(this).data('id'))
+        var id = $(this).data('id');
+        $(this).parent().remove();
+        $.ajax({
+            url: '/' + id,
+            type: 'DELETE',
+        }).done(function(response, textStatus, jqXHR){
+            console.log('Deleted user!');
+        }).fail(function( jqXHR, textStatus, errorThrown ) {
+            console.log(jqXHR, textStatus, errorThrown);
+        }).always(function(){
+            console.log('Ajax complete');
+        });
     });
 });
 

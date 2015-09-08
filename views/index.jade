@@ -3,7 +3,7 @@ extends layout
 block content
   h1= title
   .text-center
-    button#genUsers(type="button" name="get-users" class="btn-lg btn-primary") Get Users
+    button.btn.btn-primary.btn-lg#genUsers Get Users
   .container#users
     each user in users
       ul.col-md-3.well
@@ -12,7 +12,7 @@ block content
         li= user.sex
         li= user.location
         li= user.twitter
-        button.btn.btn-danger.delete(data-id= user.id) Delete
+        button.btn.btn-danger.btn-block.delete(data-id= user.id) Delete
   script#handlebars(type='text/x-handlebars-template')
     {{#each users}}
     ul.col-md-3.well
@@ -21,5 +21,5 @@ block content
       li {{this.sex}}
       li {{this.location}}
       li {{this.twitter}}
-      button.btn.btn-danger.delete(data-id= '{{_id}}') Delete
+      button.btn.btn-danger.btn-block.delete(data-id= '{{_id}}') Delete
     {{/each}}

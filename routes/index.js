@@ -38,7 +38,6 @@ router.get('/update', function(req, res, next) {
       console.log(err);
       next(err);
     } else {
-      console.log(users);
       res.send({users: users});
     }
   });

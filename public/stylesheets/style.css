@@ -1,8 +1,14 @@
 body {
-  padding: 50px;
+  padding: 40px;
+  background-color: #00b3ee;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+
+.btn {
+  margin: 10px 0;
+}
+
+ul {
+  list-style-type: none;
 }

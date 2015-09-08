@@ -3,22 +3,22 @@ extends layout
 block content
     .text-center
         button#genUsers(type="button" name="get-users" class="btn-lg btn-primary") Get Users
-    .container#users
+    div(class="container-fluid" id="users")
         each user in users
-            ul.col-md-2.well.liststyle
-                li= user.name
-                li= user.age
-                li= user.sex
-                li= user.location
-                li= user.twitter
+            div(class="col-md-3 well")
+                p= user.name
+                p= user.age
+                p= user.sex
+                p= user.location
+                p= user.twitter
                 button.btn.btn-danger.delete(data-id= user.id) Delete
     script#handlebars(type='text/x-handlebars-template')
         {{#each users}}
-        ul.col-md-2.well.liststyle
-            li {{this.name}}
-            li {{this.age}}
-            li {{this.sex}}
-            li {{this.location}}
-            li {{this.twitter}}
+        div(class="col-md-3 well")
+            p {{this.name}}
+            p {{this.age}}
+            p {{this.sex}}
+            p {{this.location}}
+            p {{this.twitter}}
             button.btn.btn-danger.delete(data-id= '{{_id}}') Delete
         {{/each}}

@@ -4,15 +4,23 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var chance = require('chance');
-
-
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var mongoose = require('mongoose');
+
+var mongoURI = "mongodb://localhost:27017/prime_group_repoShift_02";
+var MongoDB=mongoose.connect(mongoURI).connection;
 
 var app = express();
+
+MongoDB.on('error', function(err){
+  console.log("Mongodb connection error", err);
+});
+MongoDB.once('open', function(){
+  console.log("Mongodb connection open");
+});
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,18 +36,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/javascripts', express.static(__dirname + '/node_modules/jquery/dist/'));
 app.use('/javascripts', express.static(__dirname + '/node_modules/bootstrap/dist/js'));
 app.use('/javascripts', express.static(__dirname + '/node_modules/handlebars/dist/'));
-
-var mongoURI = "mongodb://localhost:27017/prime_reposhift_02";
-var MongoDB = mongoose.connect(mongoURI).connection;
-
-MongoDB.on('error', function (err) {
-  console.log('mongodb connection error', err);
-});
-
-MongoDB.once('open', function () {
-  console.log('mongodb connection open');
-});
-
 
 app.use('/', routes);
 app.use('/users', users);

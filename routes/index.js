@@ -7,12 +7,12 @@ var userDB = require('../models/user.js');
 // GET index on page load
 router.get('/', function(req, res, next) {
     userDB.find({}, function(err, users){
-       if(err){
-           console.log(err);
-           next(err);
-       } else {
-           res.render('index', { title: 'Random User Generator', users: users});
-       }
+        if(err){
+            console.log(err);
+            next(err);
+        } else {
+            res.render('index', { title: 'Random User Generator', users: users});
+        }
     });
 });
 
@@ -38,7 +38,7 @@ router.get('/generate', function(req, res, next) {
 
     //saves each user in database
     users.forEach(function(elem){
-       var user = new userDB(elem);
+        var user = new userDB(elem);
         user.save(function(err){
             if(err){
                 console.log(err);
@@ -54,14 +54,14 @@ router.get('/generate', function(req, res, next) {
 //find and delete user by id
 router.delete('/:id', function(req, res, next) {
 
-   userDB.findByIdAndRemove(req.params.id, function(err, user){
-       if(err){
-           console.log(err);
-           next(err);
-       } else {
-           res.sendStatus(200);
-       }
-   })
+    userDB.findByIdAndRemove(req.params.id, function(err, user){
+        if(err){
+            console.log(err);
+            next(err);
+        } else {
+            res.sendStatus(200);
+        }
+    })
 
 });
 

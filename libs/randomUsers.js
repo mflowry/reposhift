@@ -1,16 +1,15 @@
-var age = require('./age');
-var location = require('./location');
-var name = require('./name');
-var sex = require('./sex');
-var twitter = require('./twitter');
-var User = require('./randomUser');
+var randomUser = require('./randomUser');
 
-// multiple users function
+// create multiple new users
+// takes in a quantity of users you wish to create
 var createUsers = function(quantity){
+
+    // empty array to store new users
     var usersArray = [];
+
+    // for loop to create users
     for(var i = 0; i < quantity; i++){
-        var randomUser = new User(name(), age(), sex(), location(), twitter());
-        usersArray.push(randomUser);
+        usersArray.push(randomUser());
     }
     return usersArray;
 };

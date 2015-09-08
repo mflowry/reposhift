@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block content
+    script(src="javascripts/jquery.min.js")
+    script(src="javascripts/bootstrap.min.js")
+    script(src="javascripts/scripts.js")
+    script#user-template(type="text/x-handlebars-template")
+      |{{#each this}}
+      li {{name}}, {{age}}, {{sex}}, {{location}}, {{twitter}}
+      |{{/each}}

@@ -5,14 +5,15 @@ block content
     h1 Users:
     button.btn.btn-primary#genUsers Generate Users
   .container#users
-    each user in users
-      ul.col-md-3.well
-        li= user.name
-        li= user.age
-        li= user.sex
-        li= user.location
-        li= user.twitter
-        button.btn.btn-danger.delete.btn-block(data-id= user.id) Delete
+    if(users && users.length > 0)
+      each user in users
+        ul.col-md-3.well
+          li= user.name
+          li= user.age
+          li= user.sex
+          li= user.location
+          li= user.twitter
+          button.btn.btn-danger.delete.btn-block(data-id= user.id) Delete
   script(id="handlebars" type='text/x-handlebars-template')
     {{#each users}}
     ul.col-md-3.well
@@ -21,6 +22,6 @@ block content
       li {{this.sex}}
       li {{this.location}}
       li {{this.twitter}}
-      button.btn.btn-danger(data-id= '{{_id}}') Delete
+      button.btn.btn-danger.delete.btn-block(data-id= '{{_id}}') Delete
     {{/each}}
 

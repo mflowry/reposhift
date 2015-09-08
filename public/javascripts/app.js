@@ -4,12 +4,13 @@ $(document).ready(function(){
     });
 
     $('#users').on('click', '.delete', function(){
+       console.log('clickerd');
        var id = $(this).data('id');
         $(this).parent().remove();
         $.ajax({
             type: 'DELETE',
-            url: '/users/' + id,
-        }).done...g(function(response, textStatus, jqXHR){
+            url: '/users/' + id
+        }).done(function(response, textStatus, jqXHR){
             console.log('Deleted user!');
         }).fail(function( jqXHR, textStatus, errorThrown ) {
             console.log(jqXHR, textStatus, errorThrown);
